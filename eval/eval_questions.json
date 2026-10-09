@@ -1,0 +1,178 @@
+[
+  {
+    "id": "q01",
+    "question": "¿Cuál es la diferencia entre una variable cuantitativa discreta y una continua?",
+    "ground_truth": "Una variable discreta toma valores contables, normalmente enteros (por ejemplo el número de fallas por día), mientras que una variable continua puede tomar cualquier valor dentro de un intervalo (por ejemplo tiempo, temperatura o longitud).",
+    "type": "definicion",
+    "in_corpus": true,
+    "expected_source": "01_variables_y_escalas.md"
+  },
+  {
+    "id": "q02",
+    "question": "¿Qué diferencia a la escala de intervalo de la escala de razón?",
+    "ground_truth": "Ambas tienen orden y distancias iguales entre valores, pero la escala de razón tiene un cero absoluto que significa ausencia de la magnitud, mientras que en la de intervalo el cero es arbitrario. Por eso solo en la escala de razón tienen sentido los cocientes (10 kg es el doble de 5 kg, pero 40 °C no es el doble de 20 °C).",
+    "type": "comparacion",
+    "in_corpus": true,
+    "expected_source": "01_variables_y_escalas.md"
+  },
+  {
+    "id": "q03",
+    "question": "¿Qué pruebas estadísticas se usan con variables medidas en escala nominal?",
+    "ground_truth": "Con variables nominales se usan pruebas basadas en frecuencias, como chi-cuadrado y la prueba exacta de Fisher.",
+    "type": "definicion",
+    "in_corpus": true,
+    "expected_source": "01_variables_y_escalas.md"
+  },
+  {
+    "id": "q04",
+    "question": "¿Por qué la varianza muestral usa n − 1 en el divisor?",
+    "ground_truth": "Porque con n − 1 la varianza muestral es un estimador insesgado de la varianza poblacional (su valor esperado es igual al parámetro); dividir entre n produciría una subestimación sistemática.",
+    "type": "explicacion",
+    "in_corpus": true,
+    "expected_source": "02_estimacion_e_intervalos_de_confianza.md"
+  },
+  {
+    "id": "q05",
+    "question": "¿Cómo se construye el intervalo de confianza para la media cuando la desviación estándar poblacional es desconocida?",
+    "ground_truth": "Es la media muestral más o menos t multiplicado por s dividido entre la raíz de n, donde t es el valor crítico de la distribución t de Student con n − 1 grados de libertad. Supone población aproximadamente normal o muestra grande.",
+    "type": "procedimiento",
+    "in_corpus": true,
+    "expected_source": "02_estimacion_e_intervalos_de_confianza.md"
+  },
+  {
+    "id": "q06",
+    "question": "¿Cómo se interpreta correctamente un intervalo de confianza del 95%?",
+    "ground_truth": "Si se repitiera el muestreo muchas veces y se construyera un intervalo cada vez, aproximadamente el 95% de esos intervalos contendría el valor verdadero del parámetro. No significa que haya 95% de probabilidad de que el parámetro esté en un intervalo ya calculado, porque el parámetro es fijo y lo aleatorio es el intervalo.",
+    "type": "interpretacion",
+    "in_corpus": true,
+    "expected_source": "02_estimacion_e_intervalos_de_confianza.md"
+  },
+  {
+    "id": "q07",
+    "question": "¿Qué tamaño de muestra se necesita para estimar una media con σ = 10, error máximo E = 2 y 95% de confianza?",
+    "ground_truth": "Se usa n = (z·σ/E)² con z = 1,96: n = (1,96 × 10 / 2)² = 96,04, que se redondea hacia arriba, por lo que se necesitan 97 observaciones.",
+    "type": "calculo",
+    "in_corpus": true,
+    "expected_source": "02_estimacion_e_intervalos_de_confianza.md"
+  },
+  {
+    "id": "q08",
+    "question": "¿Qué son el error tipo I y el error tipo II?",
+    "ground_truth": "El error tipo I es rechazar la hipótesis nula cuando es verdadera y su probabilidad es α. El error tipo II es no rechazar la hipótesis nula cuando es falsa y su probabilidad se denota β.",
+    "type": "definicion",
+    "in_corpus": true,
+    "expected_source": "03_pruebas_de_hipotesis.md"
+  },
+  {
+    "id": "q09",
+    "question": "¿Qué es la potencia de una prueba y de qué depende?",
+    "ground_truth": "La potencia es 1 − β, la probabilidad de rechazar la hipótesis nula cuando realmente es falsa. Aumenta cuando aumenta el tamaño de muestra, cuando el efecto real es más grande y cuando se usa un α mayor.",
+    "type": "definicion",
+    "in_corpus": true,
+    "expected_source": "03_pruebas_de_hipotesis.md"
+  },
+  {
+    "id": "q10",
+    "question": "¿Qué significa el valor p y qué no significa?",
+    "ground_truth": "El valor p es la probabilidad, calculada suponiendo que H0 es cierta, de obtener un resultado tan extremo o más extremo que el observado; si p es menor o igual que α se rechaza H0. No es la probabilidad de que H0 sea cierta, y un p grande no demuestra que H0 sea verdadera, solo que no hay evidencia suficiente para rechazarla.",
+    "type": "interpretacion",
+    "in_corpus": true,
+    "expected_source": "03_pruebas_de_hipotesis.md"
+  },
+  {
+    "id": "q11",
+    "question": "¿Cuándo se usa la prueba t pareada y cómo se aplica?",
+    "ground_truth": "Se usa cuando hay mediciones repetidas sobre las mismas unidades, por ejemplo antes y después de un tratamiento. Se calcula la diferencia dentro de cada pareja y se aplica una prueba t de una muestra a esas diferencias con μ0 = 0.",
+    "type": "procedimiento",
+    "in_corpus": true,
+    "expected_source": "04_comparacion_de_medias_t_y_anova.md"
+  },
+  {
+    "id": "q12",
+    "question": "¿Por qué no conviene comparar tres grupos con varias pruebas t y qué se usa en su lugar?",
+    "ground_truth": "Repetir pruebas t infla el error tipo I global: con tres comparaciones y α = 0,05 cada una, la probabilidad de al menos un falso positivo es cercana a 0,14. En su lugar se usa el ANOVA de un factor, que realiza una sola prueba global.",
+    "type": "explicacion",
+    "in_corpus": true,
+    "expected_source": "04_comparacion_de_medias_t_y_anova.md"
+  },
+  {
+    "id": "q13",
+    "question": "¿Qué se hace después de que un ANOVA rechaza la hipótesis nula?",
+    "ground_truth": "ANOVA solo indica que al menos una media difiere, no cuál. Para identificar qué pares de grupos difieren se usan pruebas post hoc como Tukey HSD, que controlan el error global de las comparaciones por pares.",
+    "type": "procedimiento",
+    "in_corpus": true,
+    "expected_source": "04_comparacion_de_medias_t_y_anova.md"
+  },
+  {
+    "id": "q14",
+    "question": "¿Qué pruebas no paramétricas reemplazan al ANOVA de un factor y a la t de dos muestras independientes?",
+    "ground_truth": "El ANOVA de un factor se reemplaza por la prueba de Kruskal-Wallis y la t de dos muestras independientes se reemplaza por la U de Mann-Whitney.",
+    "type": "comparacion",
+    "in_corpus": true,
+    "expected_source": "05_pruebas_no_parametricas_y_categoricas.md"
+  },
+  {
+    "id": "q15",
+    "question": "¿Cuántos grados de libertad tiene una prueba chi-cuadrado de independencia con una tabla de 3 filas y 4 columnas?",
+    "ground_truth": "Los grados de libertad son (filas − 1) × (columnas − 1) = (3 − 1) × (4 − 1) = 6.",
+    "type": "calculo",
+    "in_corpus": true,
+    "expected_source": "05_pruebas_no_parametricas_y_categoricas.md"
+  },
+  {
+    "id": "q16",
+    "question": "¿Qué supuesto sobre las frecuencias esperadas debe revisarse en chi-cuadrado y qué se hace en una tabla 2×2 si no se cumple?",
+    "ground_truth": "Se recomienda que la mayoría de las celdas tengan frecuencia esperada de al menos 5. Si no se cumple en una tabla de 2 por 2, se usa la prueba exacta de Fisher.",
+    "type": "procedimiento",
+    "in_corpus": true,
+    "expected_source": "05_pruebas_no_parametricas_y_categoricas.md"
+  },
+  {
+    "id": "q17",
+    "question": "¿Qué mide el coeficiente de correlación de Pearson y qué limitación tiene un valor de r igual a 0?",
+    "ground_truth": "Mide la fuerza de la asociación lineal entre dos variables cuantitativas, con valores entre −1 y 1. Un r igual a 0 no implica independencia, porque las variables pueden tener una relación no lineal fuerte, como una parábola.",
+    "type": "interpretacion",
+    "in_corpus": true,
+    "expected_source": "06_correlacion_y_regresion.md"
+  },
+  {
+    "id": "q18",
+    "question": "¿Qué prueba usaría para comparar el tiempo de falla de componentes de tres proveedores?",
+    "ground_truth": "La variable de respuesta es de razón y hay tres grupos independientes, por lo que corresponde ANOVA de un factor si se cumplen los supuestos, y Kruskal-Wallis si no se cumplen.",
+    "type": "aplicacion",
+    "in_corpus": true,
+    "expected_source": "07_guia_de_seleccion_de_pruebas.md"
+  },
+  {
+    "id": "o01",
+    "question": "¿Cómo se calcula la transformada de Laplace de una función?",
+    "ground_truth": "El material de la base de conocimientos no cubre este tema, por lo que el asistente debe indicar que no puede responder con ese material y no inventar una respuesta.",
+    "type": "fuera_de_corpus",
+    "in_corpus": false,
+    "expected_source": null
+  },
+  {
+    "id": "o02",
+    "question": "¿Qué es un modelo ARIMA y cómo se usa para pronosticar series de tiempo?",
+    "ground_truth": "El material de la base de conocimientos no cubre este tema, por lo que el asistente debe indicar que no puede responder con ese material y no inventar una respuesta.",
+    "type": "fuera_de_corpus",
+    "in_corpus": false,
+    "expected_source": null
+  },
+  {
+    "id": "o03",
+    "question": "¿Cuál es la fórmula del estadístico de la prueba de Kolmogorov-Smirnov?",
+    "ground_truth": "El material de la base de conocimientos no cubre este tema, por lo que el asistente debe indicar que no puede responder con ese material y no inventar una respuesta.",
+    "type": "fuera_de_corpus",
+    "in_corpus": false,
+    "expected_source": null
+  },
+  {
+    "id": "o04",
+    "question": "¿Cómo se interpreta un factor de Bayes en una prueba de hipótesis bayesiana?",
+    "ground_truth": "El material de la base de conocimientos no cubre este tema, por lo que el asistente debe indicar que no puede responder con ese material y no inventar una respuesta.",
+    "type": "fuera_de_corpus",
+    "in_corpus": false,
+    "expected_source": null
+  }
+]

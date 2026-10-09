@@ -1,0 +1,94 @@
+[
+  {
+    "id": "q01",
+    "question": "¿Cuál es la diferencia entre una variable cuantitativa discreta y una continua?",
+    "response": "## Variables cuantitativas: discretas vs. continuas\n\nLas **variables cuantitativas** son aquellas que expresan cantidades o valores numéricos [1][3]. Dentro de este grupo, encontramos dos tipos según los valores que pueden tomar:\n\n### 1. Variable cuantitativa discreta\n- **Definición**: Toma valores que son **contables**, normalmente representados por números enteros [1].\n- **Ejemplos**: El número de fallas por día o la cantidad de hijos [1].\n- **Criterio práctico**: Entre un valor y el siguiente consecutivo (por ejemplo, entre 1 y 2 fallas), no existen valores intermedios posibles.\n\n### 2. Variable cuantitativa continua\n- **Definición**: Puede tomar **cualquier valor dentro de un intervalo** determinado [1].\n- **Ejemplos**: El tiempo, la temperatura, la longitud o la resistencia de un material [1].\n- **Criterio práctico**: Entre dos valores cualesquiera siempre es teóricamente posible encontrar valores intermedios (por ejemplo, mediciones con decimales como $10.5 \\text{ s}$ o $10.55 \\text{ s}$).\n\nEn resumen, la diferencia clave radica en si los valores se obtienen mediante un conteo (discretas) o si pueden ubicarse en cualquier punto de un intervalo continuo (continuas) [1].",
+    "retrieved_contexts": [
+      "Las variables cuantitativas expresan cantidades y pueden ser de dos tipos: discretas y continuas. Una variable cuantitativa discreta toma valores contables, normalmente números enteros, como el número de fallas por día o la cantidad de hijos. Una variable cuantitativa continua puede tomar cualquier valor dentro de un intervalo, como el tiempo, la temperatura, la longitud o la resistencia de un material.",
+      "El coeficiente de correlación de Pearson, r, mide la fuerza de la asociación lineal entre dos variables cuantitativas y toma valores entre −1 y 1. Supone una relación lineal y distribución aproximadamente normal conjunta, y es sensible a valores atípicos. Un valor de r igual a 0 no implica independencia: las variables pueden tener una relación no lineal fuerte, como una parábola.",
+      "Una variable es una característica que puede tomar distintos valores en los elementos de una población o muestra. Las variables se clasifican en cualitativas (categóricas) y cuantitativas (numéricas).\n\nLas variables cualitativas expresan cualidades o categorías, como el tipo de sangre, la ciudad de residencia o la carrera que estudia una persona. Las variables cuantitativas expresan cantidades y pueden ser de dos tipos: discretas y continuas.",
+      "Evalúa si dos variables categóricas están asociadas, a partir de una tabla de contingencia. La hipótesis nula es que las variables son independientes. El estadístico es la suma de (observado − esperado) al cuadrado dividido entre esperado. La frecuencia esperada de cada celda es el total de la fila por el total de la columna dividido entre n. Los grados de libertad son (filas − 1) por (columnas − 1): una tabla de 3 filas y 4 columnas tiene 6 grados de libertad."
+    ],
+    "retrieved_sources": [
+      "01_variables_y_escalas.md",
+      "06_correlacion_y_regresion.md",
+      "01_variables_y_escalas.md",
+      "05_pruebas_no_parametricas_y_categoricas.md"
+    ],
+    "cited_ids": [
+      1,
+      3
+    ],
+    "abstained": false,
+    "confidence": "alto",
+    "latency_s": 7.24
+  },
+  {
+    "id": "q08",
+    "question": "¿Qué son el error tipo I y el error tipo II?",
+    "response": "## Errores tipo I y tipo II en pruebas de hipótesis\n\nEn estadística inferencial, al tomar una decisión sobre una hipótesis nula ($H_0$), siempre existe el riesgo de cometer equivocaciones debido a la variabilidad de los datos muestrales:\n\n- **Error tipo I**: Ocurre cuando decidimos **rechazar $H_0$ a pesar de que $H_0$ es verdadera** [1]. La probabilidad de cometer este error se denota con la letra griega **$\\alpha$** [1].\n- **Error tipo II**: Ocurre cuando decidimos **no rechazar $H_0$ cuando en realidad $H_0$ es falsa** [1]. La probabilidad de cometer este tipo de error se denota con **$\\beta$** [1].\n\nPara recordarlo fácilmente:\n- *Error tipo I*: Ver un efecto o diferencia donde en realidad no lo hay (un \"falso positivo\").\n- *Error tipo II*: No detectar un efecto o diferencia cuando realmente sí existe (un \"falso negativo\").",
+    "retrieved_contexts": [
+      "El error tipo I consiste en rechazar H0 cuando H0 es verdadera, y su probabilidad es α. El error tipo II consiste en no rechazar H0 cuando H0 es falsa, y su probabilidad se denota β.\n\nLa potencia de una prueba es 1 − β: la probabilidad de rechazar H0 cuando realmente es falsa. La potencia aumenta cuando aumenta el tamaño de muestra, cuando el efecto real es más grande y cuando se usa un α mayor.",
+      "El error estándar es la desviación estándar de la distribución muestral de un estimador. Para la media muestral se calcula como s dividido entre la raíz de n. Disminuye cuando aumenta el tamaño de muestra, pero lo hace con la raíz de n: para reducir el error estándar a la mitad hay que multiplicar el tamaño de muestra por cuatro.",
+      "Ejemplo 1. Se quiere comparar el tiempo de falla de componentes de tres proveedores. La variable de respuesta es de razón y hay tres grupos independientes: corresponde ANOVA de un factor si se cumplen los supuestos, y Kruskal-Wallis si no se cumplen.\n\nEjemplo 2. Se quiere comparar la nota de los mismos estudiantes antes y después de una tutoría. Son dos mediciones pareadas: corresponde la prueba t pareada, o Wilcoxon si no hay normalidad en las diferencias.\n\nEjemplo 3. Se quiere saber si el género (nominal) está asociado con aprobar o no una asignatura (sí o no). Son dos variables categóricas: corresponde la prueba chi-cuadrado de independencia.",
+      "Compara las medias de dos grupos distintos, por ejemplo dos métodos de fabricación. La versión de Student supone varianzas iguales en los dos grupos; la versión de Welch no lo supone y suele recomendarse por defecto. Los supuestos son independencia entre las observaciones y normalidad aproximada en cada grupo. La igualdad de varianzas se puede verificar con la prueba de Levene."
+    ],
+    "retrieved_sources": [
+      "03_pruebas_de_hipotesis.md",
+      "02_estimacion_e_intervalos_de_confianza.md",
+      "07_guia_de_seleccion_de_pruebas.md",
+      "04_comparacion_de_medias_t_y_anova.md"
+    ],
+    "cited_ids": [
+      1
+    ],
+    "abstained": false,
+    "confidence": "alto",
+    "latency_s": 4.09
+  },
+  {
+    "id": "q15",
+    "question": "¿Cuántos grados de libertad tiene una prueba chi-cuadrado de independencia con una tabla de 3 filas y 4 columnas?",
+    "response": "## Grados de libertad en una prueba chi-cuadrado de independencia\n\nPara determinar los grados de libertad en una prueba de chi-cuadrado de independencia a partir de una tabla de contingencia, se utiliza la siguiente fórmula:\n\n$$\\text{Grados de libertad} = (\\text{filas} - 1) \\times (\\text{columnas} - 1)$$ [1][2]\n\nPaso a paso para una tabla de 3 filas y 4 columnas:\n\n1. Restamos 1 al número de filas: $3 - 1 = 2$.\n2. Restamos 1 al número de columnas: $4 - 1 = 3$.\n3. Multiplicamos ambos resultados: $2 \\times 3 = 6$.\n\nPor lo tanto, la prueba tiene **6 grados de libertad** [1][2].",
+    "retrieved_contexts": [
+      "son (filas − 1) por (columnas − 1): una tabla de 3 filas y 4 columnas tiene 6 grados de libertad. El supuesto principal es que las frecuencias esperadas sean suficientemente grandes: se recomienda que la mayoría de las celdas tengan frecuencia esperada de al menos 5. Si no se cumple en una tabla de 2 por 2, se usa la prueba exacta de Fisher.",
+      "Evalúa si dos variables categóricas están asociadas, a partir de una tabla de contingencia. La hipótesis nula es que las variables son independientes. El estadístico es la suma de (observado − esperado) al cuadrado dividido entre esperado. La frecuencia esperada de cada celda es el total de la fila por el total de la columna dividido entre n. Los grados de libertad son (filas − 1) por (columnas − 1): una tabla de 3 filas y 4 columnas tiene 6 grados de libertad.",
+      "chi-cuadrado de independencia; con frecuencias esperadas pequeñas, prueba exacta de Fisher. Comparar una variable categórica con una distribución esperada: chi-cuadrado de bondad de ajuste.",
+      "Compara las frecuencias observadas de una variable categórica con las frecuencias esperadas bajo una distribución teórica. Sus grados de libertad son el número de categorías menos 1, menos el número de parámetros estimados a partir de los datos."
+    ],
+    "retrieved_sources": [
+      "05_pruebas_no_parametricas_y_categoricas.md",
+      "05_pruebas_no_parametricas_y_categoricas.md",
+      "07_guia_de_seleccion_de_pruebas.md",
+      "05_pruebas_no_parametricas_y_categoricas.md"
+    ],
+    "cited_ids": [
+      1,
+      2
+    ],
+    "abstained": false,
+    "confidence": "alto",
+    "latency_s": 71.42
+  },
+  {
+    "id": "o04",
+    "question": "¿Cómo se interpreta un factor de Bayes en una prueba de hipótesis bayesiana?",
+    "response": "## No puedo responder con el material disponible\n\nEl material entregado no cubre ese tema. Los fragmentos disponibles tratan sobre la selección de pruebas de hipótesis clásicas o frecuentistas (como pruebas t, ANOVA, chi-cuadrado y alternativas no paramétricas), escalas de medición y sus pasos generales, pero no incluyen información sobre estadística bayesiana ni el factor de Bayes.",
+    "retrieved_contexts": [
+      "Ejemplo 1. Se quiere comparar el tiempo de falla de componentes de tres proveedores. La variable de respuesta es de razón y hay tres grupos independientes: corresponde ANOVA de un factor si se cumplen los supuestos, y Kruskal-Wallis si no se cumplen.\n\nEjemplo 2. Se quiere comparar la nota de los mismos estudiantes antes y después de una tutoría. Son dos mediciones pareadas: corresponde la prueba t pareada, o Wilcoxon si no hay normalidad en las diferencias.\n\nEjemplo 3. Se quiere saber si el género (nominal) está asociado con aprobar o no una asignatura (sí o no). Son dos variables categóricas: corresponde la prueba chi-cuadrado de independencia.",
+      "Cada prueba paramétrica tiene una alternativa no paramétrica. La prueba t para dos muestras independientes se reemplaza por la U de Mann-Whitney. La prueba t pareada se reemplaza por la prueba de rangos con signo de Wilcoxon. El ANOVA de un factor se reemplaza por la prueba de Kruskal-Wallis. La correlación de Pearson se reemplaza por la correlación de Spearman.",
+      "La escala de la variable orienta la elección de la prueba estadística. Con variables nominales se usan pruebas basadas en frecuencias, como chi-cuadrado y la prueba exacta de Fisher. Con variables ordinales se usan pruebas no paramétricas como Mann-Whitney, Wilcoxon, Kruskal-Wallis y la correlación de Spearman. Con variables de intervalo o razón que cumplen los supuestos de normalidad se pueden usar pruebas paramétricas como la t de Student, ANOVA y la correlación de Pearson.\n\nConviene decidir según la escala real de la variable y no por su apariencia numérica: codificar una variable nominal con los números 1, 2 y 3 no la convierte en cuantitativa.",
+      "Primero se plantean H0 y H1. Segundo, se fija α. Tercero, se elige el estadístico de prueba y se verifican sus supuestos. Cuarto, se calcula el estadístico y el valor p. Quinto, se decide si se rechaza o no H0. Sexto, se concluye en el contexto del problema."
+    ],
+    "retrieved_sources": [
+      "07_guia_de_seleccion_de_pruebas.md",
+      "05_pruebas_no_parametricas_y_categoricas.md",
+      "01_variables_y_escalas.md",
+      "03_pruebas_de_hipotesis.md"
+    ],
+    "cited_ids": [],
+    "abstained": true,
+    "confidence": "bajo",
+    "latency_s": 3.94
+  }
+]
