@@ -5,8 +5,8 @@ Asistente que responde preguntas de **Estadística Inferencial** usando únicame
 | | |
 |---|---|
 | **Enfoque** | Tutor Académico Personalizado |
-| **Aplicación desplegada** | `https://PEGAR-AQUI-LA-URL-PUBLICA.streamlit.app` |
-| **Repositorio** | `https://github.com/PEGAR-USUARIO/PEGAR-REPO` |
+| **Aplicación desplegada** | `https://tutor-rag-506231001.streamlit.app` |
+| **Repositorio** | `https://github.com/juldavob/rag-tutor-assistant2/` |
 | **Avances** | Avance 1: diseño de prompts · **Avance 2: pipeline RAG, evaluación con Ragas y chat desplegado** |
 
 ---
@@ -105,22 +105,10 @@ Si aparecen errores 429 (límite de la capa gratuita): usa `--workers 1` y repit
 4. **Deploy.** El primer arranque descarga el modelo de embeddings y construye el índice (unos minutos).
 5. Copia la URL pública a la tabla de arriba.
 
-## 7. Usar tu propio material
+## 7. Cambiar el material
 
 Copia PDFs, DOCX, TXT, MD o HTML a `knowledge_base/`: el hash del corpus cambia y el índice se reconstruye solo. Si cambias el corpus, **actualiza `eval/eval_questions.json`** para que la evaluación siga siendo válida.
 
-## 8. Generar el PDF de entrega
-
-```bash
-python docs/build_pdf_avance2.py --author "Tu nombre" --app-url <URL> --repo-url <URL del repo>
-```
-
-Toma parámetros, resultados de Ragas y capturas reales (`docs/screenshots/`) y lista al final lo que falte.
-
-## 9. Limitaciones
+## 8. Limitaciones
 
 Evaluación con pocas preguntas y juez de la misma familia que el generador (puede sesgar a favor); el corpus base es una síntesis propia, no un libro completo; el modelo de embeddings fue entrenado con secuencias cortas (~128 tokens).
-
-## 10. Avance 1
-
-Diseño de prompts (system prompt, few-shot, delimitadores). Demo sin modelo: `python src/demo.py`. Documento: `docs/avance1.pdf`.
