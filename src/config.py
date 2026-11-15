@@ -113,11 +113,31 @@ class ConversationConfig:
     history_answer_chars: int = 600  # recorte de respuestas previas en el historial
 
 
+@dataclass
+class AgentConfig:
+    """Límites del agente. Viven en el CÓDIGO (no en el prompt)."""
+    max_iterations: int = int(os.getenv("AGENT_MAX_ITERATIONS", "4"))   # vueltas LLM->tools por pregunta
+    max_tool_calls: int = 6                  # llamadas a tools por pregunta
+    kb_max_fragments: int = 4                # fragmentos por llamada a buscar_en_base
+    kb_max_chars: int = 700                  # longitud máxima de cada fragmento
+    kb_max_fragments_per_question: int = 12  # tope total por pregunta (evita volcar el corpus)
+    query_max_chars: int = 300
+    web_enabled: bool = os.getenv("WEB_SEARCH", "on").lower() != "off"
+    web_max_results: int = 3
+    web_snippet_chars: int = 300
+    web_query_max_chars: int = 200           # evita enviar texto largo de la base al buscador
+    web_max_calls: int = 2
+    # Sitios oficiales de referencia de estadística y su software. El LLM no puede cambiarlos.
+    web_allowed_domains: tuple = ("itl.nist.gov", "docs.scipy.org", "statsmodels.org", "r-project.org")
+    log_path: Path = ROOT / "logs" / "uso_tools.jsonl"
+
+
 SUBJECT = SUBJECT_CONFIG
 MODEL_CONFIG = ModelConfig()
 EMBEDDING_CONFIG = EmbeddingConfig()
 RETRIEVAL_CONFIG = RetrievalConfig()
 CONVERSATION_CONFIG = ConversationConfig()
+AGENT_CONFIG = AgentConfig()
 
 KNOWLEDGE_BASE_DIR = ROOT / "knowledge_base"
 CHROMA_DIR = ROOT / "chroma_db"

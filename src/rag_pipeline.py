@@ -35,6 +35,9 @@ class RAGAnswer:
     raw: str                         # salida cruda del modelo
     latency_s: float = 0.0
     prompt: str = ""
+    llm_calls: int = 0
+    prompt_tokens: int = 0
+    output_tokens: int = 0
 
     @property
     def cited(self) -> List[RetrievedChunk]:
@@ -65,11 +68,13 @@ class RAGPipeline:
 
     def ask(self, question: str, history: Optional[List[Dict]] = None, top_k: Optional[int] = None) -> RAGAnswer:
         start = time.time()
+        before = dict(self.llm.usage)
         standalone = self.standalone_question(question, history)
         retrieved = self.retriever.retrieve(standalone, top_k)
         user_prompt = build_user_prompt(retrieved, question, history)
         raw = self.llm.generate(SYSTEM_PROMPT, user_prompt)
         answer, metadata = parse_response(raw)
+        used = {k: self.llm.usage[k] - before[k] for k in before}
         return RAGAnswer(
             question=question,
             standalone_question=standalone,
@@ -79,6 +84,7 @@ class RAGPipeline:
             raw=raw,
             latency_s=round(time.time() - start, 2),
             prompt=user_prompt,
+            llm_calls=used["calls"], prompt_tokens=used["prompt_tokens"], output_tokens=used["output_tokens"],
         )
 
 

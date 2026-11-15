@@ -6,3 +6,4 @@ chroma_db/
 .env
 .streamlit/secrets.toml
 *.log
+logs/

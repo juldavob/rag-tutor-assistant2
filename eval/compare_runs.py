@@ -63,6 +63,9 @@ def main():
     args = parser.parse_args()
 
     before, after = load(args.before), load(args.after)
+    for tag, summ in ((args.before, before), (args.after, after)):
+        if not summ.get("complete", True):
+            print(f"AVISO: la corrida '{tag}' está incompleta ({summ.get('n_completed')}/{summ.get('n_questions')}); no compares todavía.")
     rows = []
     for scope, scope_label in [("metrics_all", "todas las preguntas"), ("metrics_in_corpus", "solo preguntas en el corpus")]:
         for metric in METRICS:

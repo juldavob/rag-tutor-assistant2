@@ -215,16 +215,18 @@ def test_pipeline_follow_up_uses_history(pipeline):
     assert second.standalone_question               # se pasó por el paso de reformulación
 
 
-# ------------------------------------------------------------------ interfaz
+# ------------------------------------------------------------------ interfaz (agente)
 def test_streamlit_app_end_to_end():
     streamlit_testing = pytest.importorskip("streamlit.testing.v1")
     app = streamlit_testing.AppTest.from_file(str(ROOT / "app.py"), default_timeout=60)
     app.run()
     assert not app.exception, app.exception
-    app.chat_input[0].set_value("¿Qué es el valor p?").run()
-    app.chat_input[0].set_value("¿Y cómo se interpreta?").run()      # seguimiento
-    app.chat_input[0].set_value("¿Cómo se calcula la transformada de Laplace?").run()  # fuera del corpus
+    app.chat_input[0].set_value("Hola, ¿cómo estás?").run()                       # sin tools
+    app.chat_input[0].set_value("¿Qué es el valor p?").run()                       # base
+    app.chat_input[0].set_value("¿Cómo se calcula la transformada de Laplace?").run()  # sin información
     assert not app.exception, app.exception
     assert len(app.chat_message) == 6
-    assert any("no respalda" in i.value for i in app.info), "debe avisar cuando está fuera del corpus"
-    assert any("Fuentes que respaldan" in e.label for e in app.expander)
+    assert any("no inventa" in i.value for i in app.info), "debe avisar cuando no hay información"
+    labels = [e.label for e in app.expander]
+    assert any("Herramientas usadas (0)" in l for l in labels) and any("Herramientas usadas (1)" in l for l in labels)
+    assert any("Fuentes de la base" in l for l in labels)
