@@ -7,3 +7,5 @@ chroma_db/
 .streamlit/secrets.toml
 *.log
 logs/
+knowledge_base/*.pdf
+knowledge_base/*.docx
