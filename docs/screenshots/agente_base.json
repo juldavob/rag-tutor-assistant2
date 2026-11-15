@@ -1,0 +1,201 @@
+{
+  "turns": [
+    {
+      "question": "¿Cuándo debo usar ANOVA en vez de una prueba t?",
+      "answer": "De acuerdo con el material del curso, la elección entre una **prueba $t$** y un procedimiento de **ANOVA** (Análisis de Varianza) depende principalmente del número de grupos o medias que se desean comparar y del control de pruebas simultáneas:\n\n1. **Comparación simultánea de tres o más medias:**\n   Se utiliza el procedimiento de **ANOVA** cuando el objetivo es contrastar si existen diferencias simultáneas entre las medias de **tres o más** tratamientos, poblaciones o métodos (Fuente: *Estadistica-para-administracion-y-economia.pdf*, pág. 759).\n\n2. **Limitación de aplicar pruebas $t$ múltiples:**\n   La distribución y prueba $t$ se diseñan para evaluar un parámetro o hipótesis individual (o la diferencia entre dos grupos). El material señala que la distribución $t$ no se aplica para probar simultáneamente múltiples comparaciones o ubicaciones a la vez (Fuente: *libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf*, pág. 506).\n\n3. **Partición de variabilidad:**\n   ANOVA aborda el problema particionando las sumas de cuadrados y los grados de libertad en sus distintas fuentes de variación (variabilidad entre tratamientos y variabilidad del error) a través de un estadístico global $F$ (Fuente: *Estadistica-para-administracion-y-economia.pdf*, pág. 553). Posteriormente, si la prueba global es significativa, se pueden evaluar parámetros individuales mediante pruebas $t$ asociadas (Fuente: *Estadistica-para-administracion-y-economia.pdf*, pág. 673).\n\nEn resumen: la prueba $t$ se emplea al contrastar una sola comparación/media o dos grupos, mientras que ANOVA se requiere para probar diferencias simultáneas cuando se analizan tres o más métodos o poblaciones.",
+      "metadata": {
+        "tipo": "base",
+        "tema": "ANOVA vs prueba t",
+        "fuentes": [
+          "B1",
+          "B4",
+          "B6",
+          "B7"
+        ],
+        "nivel_confianza": "medio",
+        "parse_error": false
+      },
+      "tool_calls": [
+        {
+          "name": "buscar_en_base",
+          "args": {
+            "consulta": "ANOVA prueba t diferencias cuándo usar"
+          },
+          "summary": "4 fragmentos de Estadistica-para-administracion-y-economia.pdf, libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "error": null,
+          "duration_s": 2.398
+        },
+        {
+          "name": "buscar_en_base",
+          "args": {
+            "consulta": "ANOVA tres o mas medias prueba t dos medias"
+          },
+          "summary": "4 fragmentos de Estadistica-para-administracion-y-economia.pdf, libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "error": null,
+          "duration_s": 0.011
+        },
+        {
+          "name": "buscar_en_base",
+          "args": {
+            "consulta": "\"análisis de varianza\" medias poblaciones k poblaciones"
+          },
+          "summary": "4 fragmentos de Estadistica-para-administracion-y-economia.pdf, libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "error": null,
+          "duration_s": 0.123
+        },
+        {
+          "name": "buscar_en_base",
+          "args": {
+            "consulta": "\"Capítulo 13\" \"análisis de varianza\""
+          },
+          "summary": "error: Se alcanzó el máximo de fragmentos permitidos para esta pregunta.",
+          "error": "Se alcanzó el máximo de fragmentos permitidos para esta pregunta.",
+          "duration_s": 0.0
+        }
+      ],
+      "llm_calls": 5,
+      "prompt_tokens": 21772,
+      "output_tokens": 2177,
+      "latency_s": 2768.89,
+      "iterations": 4,
+      "hit_limit": true,
+      "base_sources": [
+        {
+          "ref": "B1",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 553,
+          "similitud": 0.659,
+          "fragmento": "las puntuaciones del examen de admisión, se podrá concluir que el efecto del tipo de programa\nde preparación depende de la licenciatura\nProcedimiento ANOVA\nEl ANOV A para el experimento factorial de dos factores se parece al del experimento completa-\nmente aleatorizado y al del experimento con bloques aleatorizado en que también hay partición\nde las sumas de cuadrados y los grados de libertad en sus fuentes correspondientes. La fórmula\npara la partición de las sumas de cuadrados en sus diversos componentes se da a continuación.\nSTC = SCA + SCB + SCAB + SCE (13.26)\nEn la tabla 13.11 se resumen las particiones de las sumas de cuadrados y de los grados de liber-",
+          "cited": true
+        },
+        {
+          "ref": "B2",
+          "origen": "base",
+          "documento": "libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "seccion": "",
+          "pagina": 642,
+          "similitud": 0.652,
+          "fragmento": "de \nregresión, aparte de un factor de 2. Con cada forma de análisis es posible hacer pruebas  de signifi  cancia y la prueba t para un efecto dado es la misma en términos numéricos que \npara el coefi  ciente de regresión correspondiente. En el caso del ANOV A son importantes \nla selección de las variables y la interpretación científi ca de las interacciones; en tanto que \nen el caso de un análisis de regresión se usa un modelo para predecir la respuesta y/o de-\nterminar cuáles combinaciones de factores o niveles son las óptimas, por ejemplo, maxi-\nmizar la producción o la efi  ciencia de la purifi  cación, como en el estudio de caso 15.2.\nResulta que la propiedad de ortogonalidad es importan…",
+          "cited": false
+        },
+        {
+          "ref": "B3",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 472,
+          "similitud": 0.6398,
+          "fragmento": "en los niveles históricos. Para estudiar la varianza en las puntuaciones del nuevo examen se propone la siguiente prueba de hipótesis de dos colas.\nEl rechazo de H 0 indicará que la varianza ha cambiado y que será necesario revisar algunas de\nlas preguntas del nuevo examen para que la varianza en las puntuaciones en este examen sea pa-\nrecida a la varianza en las puntuaciones del examen anterior. El nuevo examen será aplicado a\nlos integrantes de una muestra de 30 solicitantes de licencia de conducir. En esta prueba se usa-\nrá como nivel de significancia α /H110050.05.\nEn este caso la varianza muestral de las puntuaciones de 30 exámenes fue s2 /H11005162. El va-\nlor del estadístico de prueba…",
+          "cited": false
+        },
+        {
+          "ref": "B4",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 759,
+          "similitud": 0.6282,
+          "fragmento": "Ahora se va a ver cómo usar los resultados del análisis de regresión múltiple para realizar la\nprueba ANOV A de la diferencia entre las medias de estos tres métodos. Primero, se observa que\nsi las medias no difieren\nE(y) para el método A /H11002E(y) para el método C /H110050\nE(y) para el método B /H11002E(y) para el método C /H110050\nComo es igual a E(y) al emplear el método C y es igual a E(y) al emplear el método\nA, la primera diferencia es igual a . Y como es igual a E(y) al em-\nplear el método B, la segunda diferencia es igual a . Se concluye que entre(/betatwo0 /H11001/betatwo2) /H11002/betatwo0 /H11005/betatwo2",
+          "cited": true
+        },
+        {
+          "ref": "B5",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 860,
+          "similitud": 0.7093,
+          "fragmento": "en la lista ordenada\nde menor a mayor.\n2. Calcular T, la suma de los rangos de la primera muestra. 3. En el caso de muestras grandes, para probar si existen diferencias significativas entre las\ndos poblaciones, el valor obtenido para T se compara con la distribución muestral de T\npara poblaciones idénticas con las ecuaciones (19.6) y (19.7). Para decidir si se rechaza\nH0 se emplea el valor del estadístico de prueba estandarizado z y el valor-p. En el caso de\nmuestras pequeñas, se usa la tabla 9 del apéndice B para hallar los valores críticos para\nla prueba.\n830 Capítulo 19 Métodos no paramétricos\nNOTAS Y COMENTARIOS\nLa prueba no paramétrica vista en esta sección se\nutiliza para determinar si…",
+          "cited": false
+        },
+        {
+          "ref": "B6",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 673,
+          "similitud": 0.7044,
+          "fragmento": "Prueba t\nSi la prueba F indica que la relación de regresión múltiple es significativa, se puede realizar una\nprueba t para determinar la significancia de cada uno de los parámetros. A continuación se pre-\nsenta la prueba t de significancia para cada uno de los parámetros.\n15.5 Prueba de significancia 643\nSuma Grados \nFuente de cuadrados de libertad Cuadrado medio F\nRegresión SCR p\nError SCE\nTotal STC n /H110021\nn /H11002p /H110021\nTABLA 15.3 TABLA ANOV A PARA EL MODELO DE REGRESIÓN MÚLTIPLE\nCON p V ARIABLES INDEPENDIENTES\nPRUEBA t DE SIGNIFICANCIA PARA CADA UNO DE LOS PARÁMETROS\nPara cualquier parámetro /betatwoi\nESTADÍSTICO DE PRUEBA\n(15.15)\nREGLA DE RECHAZO",
+          "cited": true
+        },
+        {
+          "ref": "B7",
+          "origen": "base",
+          "documento": "libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "seccion": "",
+          "pagina": 506,
+          "similitud": 0.701,
+          "fragmento": "consi-\nguiente, es posible utilizar una prueba t de dos colas para proporcionar información con  el fi  n de detectar si el punto i-ésimo es o no un valor extremo.\nAunque el estadístico R de Student t i produce una prueba t exacta para detectar un \nvalor extremo en una ubicación específi  ca, la distribución t no se aplicaría para probar \nsimultáneamente varios valores extremos en todas las ubicaciones. Como resultado, los \nresiduales estudentizados o valores R de Student se deberían usar estrictamente como \nherramientas de diagnóstico sin un mecanismo de prueba de hipótesis formal. La im-\nplicación es que dichos estadísticos resaltan puntos de los datos en los que el error del \najuste es ma…",
+          "cited": true
+        },
+        {
+          "ref": "B8",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 393,
+          "similitud": 0.6964,
+          "fragmento": "Ejercicios\nMétodos\n23. Considere la prueba de hipótesis siguiente:\nEn una muestra de 25, la media muestral fue /H1100514 y la desviación estándar muestral fue s/H110054.32.\na. Calcule el valor del estadístico de prueba.\nb. Use la tabla de la distribución t (tabla 2 del apéndice B) para calcular un intervalo para el\nvalor-p.\nc. Con α /H110050.05, ¿cuál es su conclusión?\nd. ¿Cuál es la regla de rechazo usando el valor crítico? ¿Cuál es su conclusión?\n24. Considere la prueba de hipótesis siguiente:\nEn una muestra de 48, la media muestral fue /H1100517 y la desviación estándar muestral fue s/H110054.5.\na. Calcule el valor del estadístico de prueba.",
+          "cited": false
+        },
+        {
+          "ref": "B9",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 123,
+          "similitud": 0.8169,
+          "fragmento": "(xi /H11002), y si se trata de una población se escribe (x i /H11002μ). Para calcular la va- rianza, estas desviaciones respecto de la media se elevan al cuadrado .\nSi los datos son de una población, el promedio de estas desviaciones elevadas al cuadrado es\nla varianza poblacional. La varianza poblacional se denota con la letra griega σ 2. En una pobla-\nción en la que hay N observaciones y la media poblacional es μ, la varianza poblacional se defi-\nne como sigue.\nx¯\nx¯\n3.2 Medidas de variabilidad 93\nRANGO INTERCUARTÍLICO\n(3.3)IQR /H11005Q3 /H11002Q1\nV ARIANZA POBLACIONAL\n(3.4)σ2 /H11005/H20858(xi /H11002μ)2\nN\nEn la mayor parte de las aplicaciones de la estadística, los datos a analizar provi…",
+          "cited": false
+        },
+        {
+          "ref": "B10",
+          "origen": "base",
+          "documento": "libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "seccion": "",
+          "pagina": 266,
+          "similitud": 0.8006,
+          "fragmento": "reúna la \ninformación de la muestra. Por otro lado, si está estudiando la variabilidad en la resis- tencia, evidentemente utilizará la distribución muestral de S 2 para conocer la contraparte \nparamétrica, la varianza de la población σ 2. \nSi se extrae una muestra aleatoria de tamaño n de una población normal con media \nμ y varianza σ 2, y se calcula la varianza muestral, se obtiene un valor del estadístico S 2. \nProcederemos a considerar la distribución del estadístico (n – 1)S 2/σ 2.\nMediante la suma y la resta de la media muestral Xˉ es fácil ver que\nn\ni=1\n(X i − μ)2 =\nn\ni=1\n[(X i − ¯X )+ ( ¯X − μ)]2\n=\nn\ni=1\n(X i − ¯X )2 +\nn\ni=1\n( ¯X − μ)2 +2( ¯X − μ)\nn\ni=1\n(X i − ¯X )\n=\nn\ni=1\n(X i − ¯X )…",
+          "cited": false
+        },
+        {
+          "ref": "B11",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 509,
+          "similitud": 0.7945,
+          "fragmento": "variable aleatoria normal pertenezca al intervalo.\n4. Calcular el valor del estadístico de prueba 5. Regla de rechazo:\ndonde α es el nivel de significancia y los grados de libertad son k – 3.\n/khi2 /H11005/H20858\nk\ni/H110051\n( fi /H11002ei)2\nei\nH0:\nHa: La población tiene una distribución normal\nLa población no tiene una distribución normal\nEjercicios\nMétodos\n20. A continuación se presenta el número de ocurrencias por lapso de tiempo y su frecuencia obser-\nvada. Use α /H110050.05 y la prueba de bondad de ajuste para ver si estos datos se ajustan a una dis-\ntribución de Poisson.\nMétodo del valor-p:\nMétodo del valor crítico:   Rechazar  H0 si valor-p /H11349α\nRechazar  H0 si /khi2 /H11350/khi2…",
+          "cited": false
+        },
+        {
+          "ref": "B12",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 950,
+          "similitud": 0.7879,
+          "fragmento": "de la\nproporción poblacionales cuando en una encuesta muestral se usa el muestreo aleatorio simple. Media poblacional\nEn el capítulo 8 se vio que la media muestral es una estimación de la media poblacional μ y\nque la desviación estándar muestral s es una estimación de la desviación estándar poblacional σ.\nUn intervalo de estimación para μ, dada una muestra de tamaño n y empleando la distribución t,\nes el siguiente.\n(22.1)\nEn la expresión (22.1),  es la estimación de , el error estándar de la media.\nCuando la muestra aleatoria simple de tamaño n se toma de una población finita de tamaño\nN, la estimación del error estándar de la media se obtiene mediante la fórmula siguiente\n(22.2)\nAl usar  co…",
+          "cited": false
+        }
+      ],
+      "web_sources": [],
+      "contexts": [
+        "las puntuaciones del examen de admisión, se podrá concluir que el efecto del tipo de programa\nde preparación depende de la licenciatura\nProcedimiento ANOVA\nEl ANOV A para el experimento factorial de dos factores se parece al del experimento completa-\nmente aleatorizado y al del experimento con bloques aleatorizado en que también hay partición\nde las sumas de cuadrados y los grados de libertad en sus fuentes correspondientes. La fórmula\npara la partición de las sumas de cuadrados en sus diversos componentes se da a continuación.\nSTC = SCA + SCB + SCAB + SCE (13.26)\nEn la tabla 13.11 se resumen las particiones de las sumas de cuadrados y de los grados de liber-",
+        "de \nregresión, aparte de un factor de 2. Con cada forma de análisis es posible hacer pruebas  de signifi  cancia y la prueba t para un efecto dado es la misma en términos numéricos que \npara el coefi  ciente de regresión correspondiente. En el caso del ANOV A son importantes \nla selección de las variables y la interpretación científi ca de las interacciones; en tanto que \nen el caso de un análisis de regresión se usa un modelo para predecir la respuesta y/o de-\nterminar cuáles combinaciones de factores o niveles son las óptimas, por ejemplo, maxi-\nmizar la producción o la efi  ciencia de la purifi  cación, como en el estudio de caso 15.2.\nResulta que la propiedad de ortogonalidad es importan…",
+        "en los niveles históricos. Para estudiar la varianza en las puntuaciones del nuevo examen se propone la siguiente prueba de hipótesis de dos colas.\nEl rechazo de H 0 indicará que la varianza ha cambiado y que será necesario revisar algunas de\nlas preguntas del nuevo examen para que la varianza en las puntuaciones en este examen sea pa-\nrecida a la varianza en las puntuaciones del examen anterior. El nuevo examen será aplicado a\nlos integrantes de una muestra de 30 solicitantes de licencia de conducir. En esta prueba se usa-\nrá como nivel de significancia α /H110050.05.\nEn este caso la varianza muestral de las puntuaciones de 30 exámenes fue s2 /H11005162. El va-\nlor del estadístico de prueba…",
+        "Ahora se va a ver cómo usar los resultados del análisis de regresión múltiple para realizar la\nprueba ANOV A de la diferencia entre las medias de estos tres métodos. Primero, se observa que\nsi las medias no difieren\nE(y) para el método A /H11002E(y) para el método C /H110050\nE(y) para el método B /H11002E(y) para el método C /H110050\nComo es igual a E(y) al emplear el método C y es igual a E(y) al emplear el método\nA, la primera diferencia es igual a . Y como es igual a E(y) al em-\nplear el método B, la segunda diferencia es igual a . Se concluye que entre(/betatwo0 /H11001/betatwo2) /H11002/betatwo0 /H11005/betatwo2",
+        "en la lista ordenada\nde menor a mayor.\n2. Calcular T, la suma de los rangos de la primera muestra. 3. En el caso de muestras grandes, para probar si existen diferencias significativas entre las\ndos poblaciones, el valor obtenido para T se compara con la distribución muestral de T\npara poblaciones idénticas con las ecuaciones (19.6) y (19.7). Para decidir si se rechaza\nH0 se emplea el valor del estadístico de prueba estandarizado z y el valor-p. En el caso de\nmuestras pequeñas, se usa la tabla 9 del apéndice B para hallar los valores críticos para\nla prueba.\n830 Capítulo 19 Métodos no paramétricos\nNOTAS Y COMENTARIOS\nLa prueba no paramétrica vista en esta sección se\nutiliza para determinar si…",
+        "Prueba t\nSi la prueba F indica que la relación de regresión múltiple es significativa, se puede realizar una\nprueba t para determinar la significancia de cada uno de los parámetros. A continuación se pre-\nsenta la prueba t de significancia para cada uno de los parámetros.\n15.5 Prueba de significancia 643\nSuma Grados \nFuente de cuadrados de libertad Cuadrado medio F\nRegresión SCR p\nError SCE\nTotal STC n /H110021\nn /H11002p /H110021\nTABLA 15.3 TABLA ANOV A PARA EL MODELO DE REGRESIÓN MÚLTIPLE\nCON p V ARIABLES INDEPENDIENTES\nPRUEBA t DE SIGNIFICANCIA PARA CADA UNO DE LOS PARÁMETROS\nPara cualquier parámetro /betatwoi\nESTADÍSTICO DE PRUEBA\n(15.15)\nREGLA DE RECHAZO",
+        "consi-\nguiente, es posible utilizar una prueba t de dos colas para proporcionar información con  el fi  n de detectar si el punto i-ésimo es o no un valor extremo.\nAunque el estadístico R de Student t i produce una prueba t exacta para detectar un \nvalor extremo en una ubicación específi  ca, la distribución t no se aplicaría para probar \nsimultáneamente varios valores extremos en todas las ubicaciones. Como resultado, los \nresiduales estudentizados o valores R de Student se deberían usar estrictamente como \nherramientas de diagnóstico sin un mecanismo de prueba de hipótesis formal. La im-\nplicación es que dichos estadísticos resaltan puntos de los datos en los que el error del \najuste es ma…",
+        "Ejercicios\nMétodos\n23. Considere la prueba de hipótesis siguiente:\nEn una muestra de 25, la media muestral fue /H1100514 y la desviación estándar muestral fue s/H110054.32.\na. Calcule el valor del estadístico de prueba.\nb. Use la tabla de la distribución t (tabla 2 del apéndice B) para calcular un intervalo para el\nvalor-p.\nc. Con α /H110050.05, ¿cuál es su conclusión?\nd. ¿Cuál es la regla de rechazo usando el valor crítico? ¿Cuál es su conclusión?\n24. Considere la prueba de hipótesis siguiente:\nEn una muestra de 48, la media muestral fue /H1100517 y la desviación estándar muestral fue s/H110054.5.\na. Calcule el valor del estadístico de prueba.",
+        "(xi /H11002), y si se trata de una población se escribe (x i /H11002μ). Para calcular la va- rianza, estas desviaciones respecto de la media se elevan al cuadrado .\nSi los datos son de una población, el promedio de estas desviaciones elevadas al cuadrado es\nla varianza poblacional. La varianza poblacional se denota con la letra griega σ 2. En una pobla-\nción en la que hay N observaciones y la media poblacional es μ, la varianza poblacional se defi-\nne como sigue.\nx¯\nx¯\n3.2 Medidas de variabilidad 93\nRANGO INTERCUARTÍLICO\n(3.3)IQR /H11005Q3 /H11002Q1\nV ARIANZA POBLACIONAL\n(3.4)σ2 /H11005/H20858(xi /H11002μ)2\nN\nEn la mayor parte de las aplicaciones de la estadística, los datos a analizar provi…",
+        "reúna la \ninformación de la muestra. Por otro lado, si está estudiando la variabilidad en la resis- tencia, evidentemente utilizará la distribución muestral de S 2 para conocer la contraparte \nparamétrica, la varianza de la población σ 2. \nSi se extrae una muestra aleatoria de tamaño n de una población normal con media \nμ y varianza σ 2, y se calcula la varianza muestral, se obtiene un valor del estadístico S 2. \nProcederemos a considerar la distribución del estadístico (n – 1)S 2/σ 2.\nMediante la suma y la resta de la media muestral Xˉ es fácil ver que\nn\ni=1\n(X i − μ)2 =\nn\ni=1\n[(X i − ¯X )+ ( ¯X − μ)]2\n=\nn\ni=1\n(X i − ¯X )2 +\nn\ni=1\n( ¯X − μ)2 +2( ¯X − μ)\nn\ni=1\n(X i − ¯X )\n=\nn\ni=1\n(X i − ¯X )…",
+        "variable aleatoria normal pertenezca al intervalo.\n4. Calcular el valor del estadístico de prueba 5. Regla de rechazo:\ndonde α es el nivel de significancia y los grados de libertad son k – 3.\n/khi2 /H11005/H20858\nk\ni/H110051\n( fi /H11002ei)2\nei\nH0:\nHa: La población tiene una distribución normal\nLa población no tiene una distribución normal\nEjercicios\nMétodos\n20. A continuación se presenta el número de ocurrencias por lapso de tiempo y su frecuencia obser-\nvada. Use α /H110050.05 y la prueba de bondad de ajuste para ver si estos datos se ajustan a una dis-\ntribución de Poisson.\nMétodo del valor-p:\nMétodo del valor crítico:   Rechazar  H0 si valor-p /H11349α\nRechazar  H0 si /khi2 /H11350/khi2…",
+        "de la\nproporción poblacionales cuando en una encuesta muestral se usa el muestreo aleatorio simple. Media poblacional\nEn el capítulo 8 se vio que la media muestral es una estimación de la media poblacional μ y\nque la desviación estándar muestral s es una estimación de la desviación estándar poblacional σ.\nUn intervalo de estimación para μ, dada una muestra de tamaño n y empleando la distribución t,\nes el siguiente.\n(22.1)\nEn la expresión (22.1),  es la estimación de , el error estándar de la media.\nCuando la muestra aleatoria simple de tamaño n se toma de una población finita de tamaño\nN, la estimación del error estándar de la media se obtiene mediante la fórmula siguiente\n(22.2)\nAl usar  co…"
+      ]
+    }
+  ]
+}

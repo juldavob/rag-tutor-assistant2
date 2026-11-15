@@ -22,7 +22,7 @@ from retriever import Retriever
 from system_prompt import sanitize
 from tool_log import ToolLog
 from tools import Session, Tool, build_tools
-from vector_store import load_or_build_store
+from vector_store import load_store_auto
 
 KB_TOOLS = ("buscar_en_base", "buscar_en_web")
 
@@ -142,7 +142,7 @@ class Agent:
 def build_agent(web: Optional[bool] = None, llm=None, embedder=None, log: bool = True, chunk_size=None, overlap=None) -> Agent:
     """Arma el agente completo (índice incluido). La web solo se activa si hay TAVILY_API_KEY y no está desactivada."""
     embedder = embedder or get_embedder()
-    store = load_or_build_store(embedder, chunk_size or RETRIEVAL_CONFIG.chunk_size,
+    store = load_store_auto(embedder, chunk_size or RETRIEVAL_CONFIG.chunk_size,
                                 RETRIEVAL_CONFIG.chunk_overlap if overlap is None else overlap)
     retriever = Retriever(store, embedder, C.kb_max_fragments)
     web_on = (C.web_enabled if web is None else web) and bool(get_secret("TAVILY_API_KEY"))

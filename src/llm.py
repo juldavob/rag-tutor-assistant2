@@ -47,6 +47,17 @@ def get_api_key() -> Optional[str]:
     return get_secret("GEMINI_API_KEY") or get_secret("GOOGLE_API_KEY")
 
 
+def thinking_config():
+    """GEMINI_THINKING_LEVEL (opcional: minimal|low|medium|high) reduce el tiempo de razonamiento del modelo.
+    Si el modelo no lo admite, quítalo del entorno."""
+    level = os.getenv("GEMINI_THINKING_LEVEL", "").strip().lower()
+    if not level:
+        return None
+    from google.genai import types
+
+    return types.ThinkingConfig(thinking_level=level)
+
+
 class GeminiLLM(BaseLLM):
     RETRYABLE = ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "INTERNAL", "DEADLINE")
 
@@ -95,7 +106,8 @@ class GeminiLLM(BaseLLM):
         from google.genai import types
 
         config = types.GenerateContentConfig(system_instruction=system, temperature=self.temperature,
-                                             max_output_tokens=self.max_tokens)
+                                             max_output_tokens=self.max_tokens,
+                                             thinking_config=thinking_config())
         text = self._generate_content(user, config).text
         if not text:
             raise LLMError("El modelo devolvió una respuesta vacía.")

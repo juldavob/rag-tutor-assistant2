@@ -36,7 +36,7 @@ EXAMPLES = [
 ]
 
 
-@st.cache_resource(show_spinner="Cargando la base de conocimientos (la primera vez puede tardar un par de minutos)…")
+@st.cache_resource(show_spinner="Cargando el índice y el modelo de embeddings…")
 def load_agent():
     return build_agent()
 
@@ -84,7 +84,11 @@ if MODEL_CONFIG.provider == "gemini" and not get_api_key():
              "(o como variable de entorno / archivo `.env` en local).")
     st.stop()
 
-agent = load_agent()
+try:
+    agent = load_agent()
+except Exception as error:  # índice ausente, embeddings, memoria, etc.: se muestra en pantalla en vez de quedar en blanco
+    st.error(f"No se pudo iniciar el agente: {error}")
+    st.stop()
 web_on = "buscar_en_web" in agent.tools
 
 with st.sidebar:

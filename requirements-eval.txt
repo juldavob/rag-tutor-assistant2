@@ -9,3 +9,4 @@ pandas==3.0.6
 matplotlib==3.11.2
 reportlab==5.0.1
 pytest==9.1.1
+fonttools

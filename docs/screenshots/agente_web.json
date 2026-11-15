@@ -1,0 +1,120 @@
+{
+  "turns": [
+    {
+      "question": "¿Qué función de SciPy hace una prueba t de dos muestras independientes?",
+      "answer": "En la biblioteca **SciPy** (módulo `scipy.stats`), la función encargada de realizar una prueba $t$ de Student para dos muestras independientes es:\n\n```python\nscipy.stats.ttest_ind(a, b, equal_var=True, alternative='two-sided')\n```\n\n### Características principales de la función:\n1. **Propósito:** Evalúa si las medias poblacionales de dos grupos o muestras independientes difieren de manera estadísticamente significativa [web: https://docs.scipy.org/doc/scipy-1.6.3/reference/generated/scipy.stats.ttest_ind.html].\n2. **Supuesto de varianzas (`equal_var`):**\n   - Si se asumen varianzas poblacionales iguales ($\\sigma_1^2 = \\sigma_2^2$), se usa `equal_var=True` (prueba $t$ estándar con varianza combinada o *pooled*).\n   - Si no se asume homocedasticidad, se define `equal_var=False`, lo cual ejecuta la **prueba $t$ de Welch** (que no asume varianzas iguales).\n3. **Resultado:** Devuelve el valor del estadístico $t$ y el valor $p$ asociado (*p-value*).",
+      "metadata": {
+        "tipo": "web",
+        "tema": "software estadístico",
+        "fuentes": [
+          "W1"
+        ],
+        "nivel_confianza": "alto",
+        "parse_error": false
+      },
+      "tool_calls": [
+        {
+          "name": "buscar_en_base",
+          "args": {
+            "consulta": "scipy prueba t dos muestras independientes"
+          },
+          "summary": "4 fragmentos de Estadistica-para-administracion-y-economia.pdf, libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "error": null,
+          "duration_s": 1.696
+        },
+        {
+          "name": "buscar_en_web",
+          "args": {
+            "consulta": "scipy.stats ttest_ind"
+          },
+          "summary": "3 resultados web",
+          "error": null,
+          "duration_s": 2.23
+        }
+      ],
+      "llm_calls": 3,
+      "prompt_tokens": 10246,
+      "output_tokens": 817,
+      "latency_s": 295.89,
+      "iterations": 3,
+      "hit_limit": false,
+      "base_sources": [
+        {
+          "ref": "B1",
+          "origen": "base",
+          "documento": "libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "seccion": "",
+          "pagina": 695,
+          "similitud": 0.6297,
+          "fragmento": "16.5 Pruebas de rachas 673\nLa prueba de rachas, aunque menos poderosa, también se utiliza como una alterna-\ntiva a la prueba de dos muestras de Wilcoxon para probar la afi  rmación de que dos muestras \naleatorias provienen de poblaciones que tienen la misma distribución y, por lo tanto, \nmedias iguales. Si las poblaciones son simétricas, el rechazo de la afi rmación de distri-\nbuciones iguales es equivalente a aceptar la hipótesis alternativa de que las medias no \nson iguales. Para hacer la prueba primero se combinan las observaciones de ambas \nmuestras y se acomodan en orden ascendente. Ahora se asigna la letra A a cada observa-",
+          "cited": false
+        },
+        {
+          "ref": "B2",
+          "origen": "base",
+          "documento": "libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "seccion": "",
+          "pagina": 506,
+          "similitud": 0.6252,
+          "fragmento": "consi-\nguiente, es posible utilizar una prueba t de dos colas para proporcionar información con  el fi  n de detectar si el punto i-ésimo es o no un valor extremo.\nAunque el estadístico R de Student t i produce una prueba t exacta para detectar un \nvalor extremo en una ubicación específi  ca, la distribución t no se aplicaría para probar \nsimultáneamente varios valores extremos en todas las ubicaciones. Como resultado, los \nresiduales estudentizados o valores R de Student se deberían usar estrictamente como \nherramientas de diagnóstico sin un mecanismo de prueba de hipótesis formal. La im-\nplicación es que dichos estadísticos resaltan puntos de los datos en los que el error del \najuste es ma…",
+          "cited": false
+        },
+        {
+          "ref": "B3",
+          "origen": "base",
+          "documento": "libro_probabilidad-y-estadistica-para-ingenerc3ada-y-ciencias-ronald-e-walpole-mayers.pdf",
+          "seccion": "",
+          "pagina": 631,
+          "similitud": 0.6106,
+          "fragmento": "de la operación de cierta máquina. \nSe realizan dos corridas de cada una de las combinacio- nes de tratamientos para obtener una medida del error \nexperimental puro. Se emplean dos niveles de cada \nfactor y se obtienen los datos que se observan en la \nsiguiente página. Pruebe todos los efectos principales \ny las interacciones a un nivel de signifi  cancia de 0.05. \nSaque sus conclusiones.\nTMP_Walpole-15.indd   609 6/8/12   7:38 PM",
+          "cited": false
+        },
+        {
+          "ref": "B4",
+          "origen": "base",
+          "documento": "Estadistica-para-administracion-y-economia.pdf",
+          "seccion": "",
+          "pagina": 385,
+          "similitud": 0.5966,
+          "fragmento": "dos colas con α como nivel de significancia. El procedimiento para usar un intervalo de con- fianza para una prueba de hipótesis de dos colas se resume como se indica a continuación.\nH0:\nHa: μ /H11005μ0\nμ /HS11005μ0\nx¯ /H11006zα/2 σ\n/H20857n\n9.3 Media poblacional: σ conocida 355\nMÉTODO DEL INTERV ALO DE CONFIANZA PARA PROBAR UNA HIPÓTESIS\nDE LA FORMA\n1. Seleccionar de la población una muestra aleatoria simple y emplear el valor de\nla media muestral para obtener un intervalo de confianza para la media pobla-\ncional μ.\n2. Si el intervalo de confianza contiene el valor hipotético μ0, no se rechaza H0. Si no\nes así, se rechaza H0.\nx¯ /H11006zα/2 σ\n/H20857n\nx¯\nH0:\nHa: μ /H11005μ0\nμ /HS11005μ0\nEn…",
+          "cited": false
+        }
+      ],
+      "web_sources": [
+        {
+          "ref": "W1",
+          "origen": "web",
+          "titulo": "scipy.stats.ttest_ind — SciPy v0.9 Reference Guide (DRAFT)",
+          "url": "https://docs.scipy.org/doc/scipy-0.9.0/reference/generated/scipy.stats.ttest_ind.html",
+          "extracto": "We can use this test, if we observe two independent samples from the same or different population, e.g. exam scores of boys and girls or of two ethnic groups. The test measures whether the average (expected) value differs significantly across samples. If we observe a large p-value, for example large…",
+          "cited": true
+        },
+        {
+          "ref": "W2",
+          "origen": "web",
+          "titulo": "scipy.stats.ttest_ind — SciPy v0.16.1 Reference Guide",
+          "url": "https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.stats.ttest_ind.html",
+          "extracto": "We can use this test, if we observe two independent samples from the same or different population, e.g. exam scores of boys and girls or of two ethnic groups. The test measures whether the average (expected) value differs significantly across samples. If we observe a large p-value, for example large…",
+          "cited": false
+        },
+        {
+          "ref": "W3",
+          "origen": "web",
+          "titulo": "scipy.stats.ttest_ind — SciPy v1.6.3 Reference Guide",
+          "url": "https://docs.scipy.org/doc/scipy-1.6.3/reference/generated/scipy.stats.ttest_ind.html",
+          "extracto": "We can use this test, if we observe two independent samples from the same or different population, e.g. exam scores of boys and girls or of two ethnic groups. The test measures whether the average (expected) value differs significantly across samples. If we observe a large p-value, for example large…",
+          "cited": false
+        }
+      ],
+      "contexts": [
+        "16.5 Pruebas de rachas 673\nLa prueba de rachas, aunque menos poderosa, también se utiliza como una alterna-\ntiva a la prueba de dos muestras de Wilcoxon para probar la afi  rmación de que dos muestras \naleatorias provienen de poblaciones que tienen la misma distribución y, por lo tanto, \nmedias iguales. Si las poblaciones son simétricas, el rechazo de la afi rmación de distri-\nbuciones iguales es equivalente a aceptar la hipótesis alternativa de que las medias no \nson iguales. Para hacer la prueba primero se combinan las observaciones de ambas \nmuestras y se acomodan en orden ascendente. Ahora se asigna la letra A a cada observa-",
+        "consi-\nguiente, es posible utilizar una prueba t de dos colas para proporcionar información con  el fi  n de detectar si el punto i-ésimo es o no un valor extremo.\nAunque el estadístico R de Student t i produce una prueba t exacta para detectar un \nvalor extremo en una ubicación específi  ca, la distribución t no se aplicaría para probar \nsimultáneamente varios valores extremos en todas las ubicaciones. Como resultado, los \nresiduales estudentizados o valores R de Student se deberían usar estrictamente como \nherramientas de diagnóstico sin un mecanismo de prueba de hipótesis formal. La im-\nplicación es que dichos estadísticos resaltan puntos de los datos en los que el error del \najuste es ma…",
+        "de la operación de cierta máquina. \nSe realizan dos corridas de cada una de las combinacio- nes de tratamientos para obtener una medida del error \nexperimental puro. Se emplean dos niveles de cada \nfactor y se obtienen los datos que se observan en la \nsiguiente página. Pruebe todos los efectos principales \ny las interacciones a un nivel de signifi  cancia de 0.05. \nSaque sus conclusiones.\nTMP_Walpole-15.indd   609 6/8/12   7:38 PM",
+        "dos colas con α como nivel de significancia. El procedimiento para usar un intervalo de con- fianza para una prueba de hipótesis de dos colas se resume como se indica a continuación.\nH0:\nHa: μ /H11005μ0\nμ /HS11005μ0\nx¯ /H11006zα/2 σ\n/H20857n\n9.3 Media poblacional: σ conocida 355\nMÉTODO DEL INTERV ALO DE CONFIANZA PARA PROBAR UNA HIPÓTESIS\nDE LA FORMA\n1. Seleccionar de la población una muestra aleatoria simple y emplear el valor de\nla media muestral para obtener un intervalo de confianza para la media pobla-\ncional μ.\n2. Si el intervalo de confianza contiene el valor hipotético μ0, no se rechaza H0. Si no\nes así, se rechaza H0.\nx¯ /H11006zα/2 σ\n/H20857n\nx¯\nH0:\nHa: μ /H11005μ0\nμ /HS11005μ0\nEn…",
+        "We can use this test, if we observe two independent samples from the same or different population, e.g. exam scores of boys and girls or of two ethnic groups. The test measures whether the average (expected) value differs significantly across samples. If we observe a large p-value, for example large…",
+        "We can use this test, if we observe two independent samples from the same or different population, e.g. exam scores of boys and girls or of two ethnic groups. The test measures whether the average (expected) value differs significantly across samples. If we observe a large p-value, for example large…",
+        "We can use this test, if we observe two independent samples from the same or different population, e.g. exam scores of boys and girls or of two ethnic groups. The test measures whether the average (expected) value differs significantly across samples. If we observe a large p-value, for example large…"
+      ]
+    }
+  ]
+}

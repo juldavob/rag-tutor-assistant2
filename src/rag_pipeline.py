@@ -22,7 +22,7 @@ from embeddings import Embedder, get_embedder
 from llm import BaseLLM, LLMError, get_llm
 from retriever import Retriever
 from system_prompt import SYSTEM_PROMPT, build_condense_prompt, build_user_prompt, parse_response
-from vector_store import RetrievedChunk, load_or_build_store
+from vector_store import RetrievedChunk, load_store_auto
 
 
 @dataclass
@@ -95,5 +95,5 @@ def build_pipeline(chunk_size: Optional[int] = None, overlap: Optional[int] = No
     overlap = RETRIEVAL_CONFIG.chunk_overlap if overlap is None else overlap
     top_k = top_k or RETRIEVAL_CONFIG.top_k
     embedder = embedder or get_embedder()
-    store = load_or_build_store(embedder, chunk_size, overlap, rebuild=rebuild)
+    store = load_store_auto(embedder, chunk_size, overlap, rebuild=rebuild)
     return RAGPipeline(Retriever(store, embedder, top_k), llm or get_llm())

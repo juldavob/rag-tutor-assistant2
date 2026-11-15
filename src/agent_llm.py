@@ -18,7 +18,7 @@ from dataclasses import dataclass, field
 from typing import Any, List, Optional
 
 from config import MODEL_CONFIG
-from llm import BaseLLM, GeminiLLM
+from llm import BaseLLM, GeminiLLM, thinking_config
 
 
 @dataclass
@@ -56,6 +56,7 @@ class GeminiAgentLLM(GeminiLLM):
         config = types.GenerateContentConfig(
             system_instruction=system, temperature=self.temperature, max_output_tokens=self.max_tokens,
             tools=[types.Tool(function_declarations=declarations)] if declarations else None,
+            thinking_config=thinking_config(),
             automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True))
         before = dict(self.usage)
         response = self._generate_content(contents, config)

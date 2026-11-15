@@ -1,0 +1,25 @@
+{
+  "turns": [
+    {
+      "question": "Hola, ¿cómo estás?",
+      "answer": "¡Hola! Estoy muy bien, gracias por preguntar. Soy tu tutor académico de Estadística Inferencial. ¿Qué tema o duda te gustaría que revisemos hoy?",
+      "metadata": {
+        "tipo": "conversacion",
+        "tema": "saludo",
+        "fuentes": [],
+        "nivel_confianza": "alto",
+        "parse_error": false
+      },
+      "tool_calls": [],
+      "llm_calls": 1,
+      "prompt_tokens": 2398,
+      "output_tokens": 133,
+      "latency_s": 704.35,
+      "iterations": 1,
+      "hit_limit": false,
+      "base_sources": [],
+      "web_sources": [],
+      "contexts": []
+    }
+  ]
+}

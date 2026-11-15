@@ -32,7 +32,7 @@ def render_terminal_png(text: str, path: Path, title: str = "terminal") -> None:
     for cx, color in zip([0.35, 0.65, 0.95], ["#ff5f56", "#ffbd2e", "#27c93f"]):
         ax.add_patch(plt.Circle((cx, fig_h - top_bar / 2), 0.11, facecolor=color))
     ax.text(fig_w / 2, fig_h - top_bar / 2, title, ha="center", va="center",
-            color="#cccccc", fontsize=10, fontfamily="monospace")
+            color="#cccccc", fontsize=10, fontfamily="monospace", parse_math=False)
     y = fig_h - top_bar - line_h * 0.6
     for line in lines:
         color = "#e6e6e6"
@@ -40,7 +40,8 @@ def render_terminal_png(text: str, path: Path, title: str = "terminal") -> None:
             color = "#7fdc7f"
         elif line.startswith("==") or line.startswith("--"):
             color = "#6fa8dc"
-        ax.text(0.2, y, line, ha="left", va="top", color=color, fontsize=8.6, fontfamily="monospace")
+        ax.text(0.2, y, line, ha="left", va="top", color=color, fontsize=8.6,
+                fontfamily="monospace", parse_math=False)
         y -= line_h
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(path, dpi=150, facecolor="#1e1e1e")
