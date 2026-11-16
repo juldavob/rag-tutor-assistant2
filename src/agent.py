@@ -54,6 +54,8 @@ class AgentAnswer:
     web_sources: List[dict] = field(default_factory=list)
     contexts: List[str] = field(default_factory=list)
     raw: str = ""
+    retries: int = 0
+    wait_s: float = 0.0
 
     @property
     def cited_refs(self) -> set:
@@ -73,7 +75,8 @@ class AgentAnswer:
         return {"question": self.question, "answer": self.answer, "metadata": self.metadata, "tool_calls": self.tool_calls,
                 "llm_calls": self.llm_calls, "prompt_tokens": self.prompt_tokens, "output_tokens": self.output_tokens,
                 "latency_s": self.latency_s, "iterations": self.iterations, "hit_limit": self.hit_limit,
-                "base_sources": self.base_sources, "web_sources": self.web_sources, "contexts": self.contexts}
+                "base_sources": self.base_sources, "web_sources": self.web_sources, "contexts": self.contexts,
+                "retries": self.retries, "wait_s": self.wait_s}
 
 
 class Agent:
@@ -86,6 +89,7 @@ class Agent:
     def ask(self, question: str, history: Optional[List[Dict]] = None) -> AgentAnswer:
         started = time.time()
         session, tool_calls = Session(), []
+        usage_before = dict(self.llm.usage)
         usage = {"calls": 0, "prompt": 0, "output": 0}
         contents = self.llm.start(history or [], question)
 
@@ -130,12 +134,14 @@ class Agent:
         answer = AgentAnswer(question=question, answer=markdown, metadata=metadata, tool_calls=tool_calls,
                              llm_calls=usage["calls"], prompt_tokens=usage["prompt"], output_tokens=usage["output"],
                              latency_s=round(time.time() - started, 2), iterations=iterations, hit_limit=hit_limit,
-                             base_sources=base, web_sources=web, contexts=list(session.contexts), raw=final.text)
+                             base_sources=base, web_sources=web, contexts=list(session.contexts), raw=final.text,
+                             retries=int(self.llm.usage.get("retries", 0) - usage_before.get("retries", 0)),
+                             wait_s=round(self.llm.usage.get("wait_s", 0.0) - usage_before.get("wait_s", 0.0), 1))
         if self.log:
             self.log.write({"question": question, "tools": [{k: t[k] for k in ("name", "args", "summary", "error", "duration_s")} for t in tool_calls],
                             "llm_calls": answer.llm_calls, "prompt_tokens": answer.prompt_tokens, "output_tokens": answer.output_tokens,
                             "iterations": iterations, "hit_limit": hit_limit, "tipo": answer.tipo, "abstained": answer.abstained,
-                            "latency_s": answer.latency_s})
+                            "latency_s": answer.latency_s, "retries": answer.retries, "wait_s": answer.wait_s})
         return answer
 
 

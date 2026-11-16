@@ -63,6 +63,8 @@ def render_assistant(msg):
     stats = msg["stats"]
     st.caption(f"Tipo: {msg['meta'].get('tipo') or '—'} · Confianza: {msg['meta'].get('nivel_confianza', '—')} · "
                f"{stats['llm_calls']} llamadas al LLM · {stats['tokens']} tokens · {stats['latency_s']} s")
+    if stats.get("retries"):
+        st.warning(f"Gemini tardó por {stats['retries']} reintento(s): {stats['wait_s']:.0f} s de espera por límites de uso o saturación del servicio.")
     if stats["hit_limit"]:
         st.warning("Se alcanzó el límite de iteraciones; la respuesta usa lo reunido hasta ese momento.")
     with st.expander(f"🛠️ Herramientas usadas ({len(msg['tools'])})"):
@@ -136,6 +138,7 @@ if question:
             "role": "assistant", "content": result.answer, "meta": result.metadata, "abstained": result.abstained,
             "tools": result.tool_calls, "base": result.base_sources, "web": result.web_sources,
             "stats": {"llm_calls": result.llm_calls, "tokens": result.prompt_tokens + result.output_tokens,
-                      "latency_s": result.latency_s, "hit_limit": result.hit_limit}}
+                      "latency_s": result.latency_s, "hit_limit": result.hit_limit,
+                      "retries": result.retries, "wait_s": result.wait_s}}
         render_assistant(assistant_message)
     st.session_state.messages += [{"role": "user", "content": question}, assistant_message]

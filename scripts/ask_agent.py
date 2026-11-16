@@ -50,7 +50,7 @@ def run_turn(question, history):
         for s in a.web_sources:
             emit(f"[{s['ref']}] WEB  {'(citada) ' if s['cited'] else ''}{s['titulo']} - {s['url']}")
     emit(f"Tipo: {a.tipo or '?'} | confianza: {a.metadata.get('nivel_confianza')} | llamadas al LLM: {a.llm_calls} | "
-         f"tokens: {a.prompt_tokens + a.output_tokens} | {a.latency_s} s | modelo {agent.llm.model_name}")
+         f"tokens: {a.prompt_tokens + a.output_tokens} | {a.latency_s} s | reintentos: {a.retries} ({a.wait_s:.0f} s de espera) | modelo {agent.llm.model_name}")
     turns.append(a.to_dict())
     return a
 

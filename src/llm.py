@@ -25,7 +25,7 @@ class BaseLLM:
     model_name: str = "base"
 
     def __init__(self):
-        self.usage = {"calls": 0, "prompt_tokens": 0, "output_tokens": 0}
+        self.usage = {"calls": 0, "prompt_tokens": 0, "output_tokens": 0, "retries": 0, "wait_s": 0.0}
 
     def generate(self, system: str, user: str) -> str:
         raise NotImplementedError
@@ -59,7 +59,7 @@ def thinking_config():
 
 
 class GeminiLLM(BaseLLM):
-    RETRYABLE = ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "INTERNAL", "DEADLINE")
+    RETRYABLE = ("429", "RESOURCE_EXHAUSTED", "503", "UNAVAILABLE", "500", "INTERNAL", "DEADLINE", "timed out", "Timeout", "timeout")
 
     def __init__(self, api_key: Optional[str] = None, model_name: Optional[str] = None,
                  temperature: float = MODEL_CONFIG.temperature,
@@ -71,7 +71,10 @@ class GeminiLLM(BaseLLM):
                            "en un archivo .env local o en los secrets de la plataforma.")
         from google import genai
 
-        self._client = genai.Client(api_key=api_key)
+        from google.genai import types as genai_types
+
+        timeout_ms = int(float(os.getenv("GEMINI_TIMEOUT_S", "90")) * 1000)   # una llamada colgada no debe bloquear minutos
+        self._client = genai.Client(api_key=api_key, http_options=genai_types.HttpOptions(timeout=timeout_ms))
         self.model_name = model_name or MODEL_CONFIG.model_name
         self.temperature = temperature
         self.max_tokens = max_tokens
@@ -91,8 +94,16 @@ class GeminiLLM(BaseLLM):
                 response = self._client.models.generate_content(model=self.model_name, contents=contents, config=config)
             except Exception as error:  # límites de uso y errores transitorios
                 last_error = error
-                if any(code in str(error) for code in self.RETRYABLE) and attempt < self.max_retries - 1:
-                    time.sleep(min(2 ** attempt * 3, 60))
+                text = str(error)
+                if "PerDay" in text or "per day" in text.lower():   # cuota diaria: reintentar no sirve de nada
+                    raise LLMError("Se agotó la cuota DIARIA de Gemini para este modelo. Prueba con otro modelo en GEMINI_MODEL "
+                                   "o espera al reinicio de la cuota.") from error
+                if any(code in text for code in self.RETRYABLE) and attempt < self.max_retries - 1:
+                    delay = min(2 ** attempt * 3, 60)
+                    self.usage["retries"] += 1
+                    self.usage["wait_s"] += delay
+                    print(f"[gemini] intento {attempt + 1}/{self.max_retries} falló ({text[:110]!r}); reintento en {delay}s", flush=True)
+                    time.sleep(delay)
                     continue
                 raise LLMError(f"Error al llamar a Gemini: {error}") from error
             self._record(response)
