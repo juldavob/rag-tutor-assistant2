@@ -226,6 +226,7 @@ def test_streamlit_app_end_to_end():
     app.chat_input[0].set_value("¿Cómo se calcula la transformada de Laplace?").run()  # sin información
     assert not app.exception, app.exception
     assert len(app.chat_message) == 6
+    assert len(app.get("help")) == 0, "Streamlit está mostrando la ayuda de un objeto interno (expresión suelta en app.py)"
     assert any("no inventa" in i.value for i in app.info), "debe avisar cuando no hay información"
     labels = [e.label for e in app.expander]
     assert any("Herramientas usadas (0)" in l for l in labels) and any("Herramientas usadas (1)" in l for l in labels)

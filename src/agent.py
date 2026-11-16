@@ -145,5 +145,6 @@ def build_agent(web: Optional[bool] = None, llm=None, embedder=None, log: bool =
     store = load_store_auto(embedder, chunk_size or RETRIEVAL_CONFIG.chunk_size,
                                 RETRIEVAL_CONFIG.chunk_overlap if overlap is None else overlap)
     retriever = Retriever(store, embedder, C.kb_max_fragments)
+    retriever.retrieve("precalentamiento", top_k=1)  # carga el modelo de embeddings y el índice AL ARRANCAR (no en la primera pregunta)
     web_on = (C.web_enabled if web is None else web) and bool(get_secret("TAVILY_API_KEY"))
     return Agent(llm or get_agent_llm(), build_tools(retriever, web=web_on), ToolLog() if log else None)

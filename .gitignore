@@ -9,3 +9,5 @@ chroma_db/
 logs/
 knowledge_base/*.pdf
 knowledge_base/*.docx
+kb_old/*.md
+kb_old/*.pdf

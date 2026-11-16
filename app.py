@@ -115,7 +115,10 @@ st.caption("Pregúntame sobre el curso, pídeme un cálculo (tamaño de muestra,
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
-        st.markdown(message["content"]) if message["role"] == "user" else render_assistant(message)
+        if message["role"] == "user":
+            st.markdown(message["content"])
+        else:
+            render_assistant(message)
 
 question = st.chat_input("Escribe tu pregunta…") or st.session_state.pop("pending", None)
 if question:
